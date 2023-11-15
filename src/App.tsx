@@ -1,75 +1,24 @@
-import { useState, useEffect } from 'react';
-import * as C from './App.styles';
-import { Item } from './types/Item';
-import { categories } from './data/categories';
-import { items } from './data/items';
-import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter';
-import { TableArea } from './components/TableArea';
-import { InfoArea } from './components/InfoArea';
-import { InputArea } from './components/InputArea';
+import { Routes, Route } from "react-router-dom"
+import Main from "./pages/main"
+import { Login } from "./pages/Login"
+import { RequireAuth } from "./contexts/Auth/RequireAuth"
+import { Register } from "./pages/Register";
 
-const App = () => {
-  const [list, setList] = useState(items);
-  const [filteredList, setFilteredList] = useState<Item[]>([]);
-  const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
-  const [income, setIncome] = useState(0);
-  const [expense, setExpense] = useState(0);
 
-  useEffect(()=>{
-    setFilteredList( filterListByMonth(list, currentMonth) );
-  }, [list, currentMonth]);
-
-  useEffect(()=>{
-    let incomeCount = 0;
-    let expenseCount = 0;
-
-    for(let i in filteredList) {
-      if(categories[filteredList[i].category].expense) {
-        expenseCount += filteredList[i].value;
-      } else {
-        incomeCount += filteredList[i].value;
-      }
-    }
-
-    setIncome(incomeCount);
-    setExpense(expenseCount);
-  }, [filteredList]);
-
-  const handleMonthChange = (newMonth: string) => {
-    setCurrentMonth(newMonth);
-  }
-
-  const handleAddItem = (item: Item) => {
-    let newList = [...list];
-    newList.push(item);
-    setList(newList);
-    
-  }
-  
-
+function App() {
   return (
-    <C.Container>
-      <C.Header>
-        <C.HeaderText></C.HeaderText>
-      </C.Header>
-      <C.Body>
-        
-        <InfoArea
-          currentMonth={currentMonth}
-          onMonthChange={handleMonthChange}
-          income={income}
-          expense={expense}
-        />
-
-        <InputArea onAdd={handleAddItem} />
-
-        <TableArea list={filteredList} />
-
-      </C.Body>
-    </C.Container>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/main" element={<RequireAuth>
+          <>
+            <Main />
+          </>
+        </RequireAuth>} />
+      </Routes>
+    </div>
   );
 }
 
-export default App;
-
-// Comentário mudança 1
+export default App
