@@ -1,13 +1,15 @@
 ##  Finanfacil
-This is a project for Mackenzie University. It uses ReactJS using styled-components.
+Projeto feito para a Universidade Presbiteriana Mackenzie.</br>
+É um website para auxiliar no controle financeiro, sendo possível verificar meses anteriores, verificar balanço e adicionar novas despesas/recebimentos.
 
-## Requirements
-Can run in any device that supports the latests browsers (Firefox, Edge, Chrome, etc)
+##Estrutura
+O projeto foi feito em React JS e TypeScript. As bibliotecas utiliadas foram: Styled Components, React Router DOM e axios.
 
-## Run in your own environment
-To run in your own environment, you will need Node.js. You can check how to install here: https://nodejs.org/en<br />
-In the project directory, you can use ```npm start``` to run in your own device. Open (http://localhost:3000) to view it in your browser.
+## Para acessar, é necessário
+Conexão com a internet e um dispositivo com versões recentes de navegadoras como o Chrome, Firefox, etc.
 
-## Learn More
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).<br />
-To learn React, check out the [React documentation](https://reactjs.org/). <br />
+## Rodar no localhost
+Para abrir o projeto diretamente no localhost, é necessário ter o Nodejs instalado.</br>
+É possível verificar como instalar pelo link: https://nodejs.org/en </br>
+Para rodar, basta digitar npm start no terminal.
+
