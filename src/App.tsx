@@ -8,17 +8,15 @@ import { Register } from "./pages/Register";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/finanf">
-        <Routes>
-          <Route path="/finanf" element={<Login />} />
-          <Route path="/finanf/register" element={<Register />} />
-          <Route path="/finanf/main" element={<RequireAuth>
+      <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/main" element={<RequireAuth>
             <>
               <Main />
             </>
         </RequireAuth>} />
-        </Routes>
-      </BrowserRouter>
+      </Routes>
     </div>
   );
 }

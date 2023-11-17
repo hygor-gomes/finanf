@@ -62,7 +62,7 @@ export const Register = () => {
           placeholder="Digite sua senha"
         />
 
-        <RegisterButton>Registrar</RegisterButton>
+        <RegisterButton onClick={handleBackToLogin}>Registrar</RegisterButton>
       </RegisterBox>
     </RegisterPageContainer>
   );
